@@ -30,7 +30,7 @@ contract IndividuallyCappedCrowdsale is Crowdsale, Ownable {
    * @param _cap Wei limit for individual contribution
    */
   function setGroupCap(
-    address[] _beneficiaries,
+    address[] calldata _beneficiaries,
     uint256 _cap
   )
     external
