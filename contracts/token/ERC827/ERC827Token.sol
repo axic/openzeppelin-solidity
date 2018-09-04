@@ -43,7 +43,8 @@ contract ERC827Token is ERC827, StandardToken {
     super.approve(_spender, _value);
 
     // solium-disable-next-line security/no-call-value
-    require(_spender.call.value(msg.value)(_data));
+    (bool success,) = _spender.call.value(msg.value)(_data);
+    require(success);
 
     return true;
   }
@@ -70,7 +71,8 @@ contract ERC827Token is ERC827, StandardToken {
     super.transfer(_to, _value);
 
     // solium-disable-next-line security/no-call-value
-    require(_to.call.value(msg.value)(_data));
+    (bool success,) = _to.call.value(msg.value)(_data);
+    require(success);
     return true;
   }
 
@@ -96,7 +98,8 @@ contract ERC827Token is ERC827, StandardToken {
     super.transferFrom(_from, _to, _value);
 
     // solium-disable-next-line security/no-call-value
-    require(_to.call.value(msg.value)(_data));
+    (bool success,) = _to.call.value(msg.value)(_data);
+    require(success);
     return true;
   }
 
@@ -125,7 +128,8 @@ contract ERC827Token is ERC827, StandardToken {
     super.increaseApproval(_spender, _addedValue);
 
     // solium-disable-next-line security/no-call-value
-    require(_spender.call.value(msg.value)(_data));
+    (bool success,) = _spender.call.value(msg.value)(_data);
+    require(success);
 
     return true;
   }
@@ -155,7 +159,8 @@ contract ERC827Token is ERC827, StandardToken {
     super.decreaseApproval(_spender, _subtractedValue);
 
     // solium-disable-next-line security/no-call-value
-    require(_spender.call.value(msg.value)(_data));
+    (bool success,) = _spender.call.value(msg.value)(_data);
+    require(success);
 
     return true;
   }
