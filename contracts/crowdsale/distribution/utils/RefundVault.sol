@@ -16,7 +16,7 @@ contract RefundVault is Ownable {
   enum State { Active, Refunding, Closed }
 
   mapping (address => uint256) public deposited;
-  address public wallet;
+  address payable public wallet;
   State public state;
 
   event Closed();
@@ -26,7 +26,7 @@ contract RefundVault is Ownable {
   /**
    * @param _wallet Vault address
    */
-  constructor(address _wallet) public {
+  constructor(address payable _wallet) public {
     require(_wallet != address(0));
     wallet = _wallet;
     state = State.Active;
@@ -56,7 +56,7 @@ contract RefundVault is Ownable {
   /**
    * @param investor Investor address
    */
-  function refund(address investor) public {
+  function refund(address payable investor) public {
     require(state == State.Refunding);
     uint256 depositedValue = deposited[investor];
     deposited[investor] = 0;

@@ -8,7 +8,7 @@ contract AllowanceCrowdsaleImpl is AllowanceCrowdsale {
 
   constructor (
     uint256 _rate,
-    address _wallet,
+    address payable _wallet,
     ERC20 _token,
     address _tokenWallet
   )

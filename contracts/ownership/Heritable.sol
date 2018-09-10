@@ -11,7 +11,7 @@ import "./Ownable.sol";
  * owner's death.
  */
 contract Heritable is Ownable {
-  address private heir_;
+  address payable private heir_;
 
   // Time window the owner has to notify they are alive.
   uint256 private heartbeatTimeout_;
@@ -50,7 +50,7 @@ contract Heritable is Ownable {
     setHeartbeatTimeout(_heartbeatTimeout);
   }
 
-  function setHeir(address newHeir) public onlyOwner {
+  function setHeir(address payable newHeir) public onlyOwner {
     require(newHeir != owner);
     heartbeat();
     emit HeirChanged(owner, newHeir);
