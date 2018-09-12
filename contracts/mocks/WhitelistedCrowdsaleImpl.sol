@@ -8,7 +8,7 @@ contract WhitelistedCrowdsaleImpl is WhitelistedCrowdsale {
 
   constructor (
     uint256 _rate,
-    address _wallet,
+    address payable _wallet,
     ERC20 _token
   )
     public

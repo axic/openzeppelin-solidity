@@ -38,7 +38,7 @@ contract SplitPayment {
    * @dev Claim your share of the balance.
    */
   function claim() public {
-    address payee = msg.sender;
+    address payable payee = msg.sender;
 
     require(shares[payee] > 0);
 

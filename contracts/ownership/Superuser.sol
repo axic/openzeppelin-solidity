@@ -56,7 +56,7 @@ contract Superuser is Ownable, RBAC {
    * @dev Allows the current superuser or owner to transfer control of the contract to a newOwner.
    * @param _newOwner The address to transfer ownership to.
    */
-  function transferOwnership(address _newOwner) public onlyOwnerOrSuperuser {
+  function transferOwnership(address payable _newOwner) public onlyOwnerOrSuperuser {
     _transferOwnership(_newOwner);
   }
 }
